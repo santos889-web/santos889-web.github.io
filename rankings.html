@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Rankings — Los Juegos Más Buscados — TodoJuegosInfo.com</title>
+  <meta name="description" content="Rankings de videojuegos y juegos de mesa según volumen de búsqueda. Datos reales de tendencias en español."/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header id="main-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo"><span class="logo-tji">TJI</span><span class="logo-full">TodoJuegosInfo</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="videojuegos.html" class="nav-link">Videojuegos</a>
+      <a href="juegos-mesa.html" class="nav-link">Juegos de Mesa</a>
+      <a href="consolas.html" class="nav-link">Consolas</a>
+      <a href="noticias.html" class="nav-link">Noticias</a>
+      <a href="rankings.html" class="nav-link active">Rankings</a>
+    </div>
+    <div class="nav-actions">
+      <button class="search-btn" id="searchBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container"><input type="text" id="searchInput" placeholder="Buscar..." autocomplete="off"/><button id="searchClose">✕</button></div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>🏆 Rankings</h1>
+    <p>Clasificaciones basadas en datos reales de volumen de búsqueda mensual. Descubre qué juegos busca más la gente.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <!-- Bar Charts -->
+  <div class="charts-row" id="chartsRow"></div>
+
+  <!-- Full Rankings Table -->
+  <div class="section-header"><h2 class="section-title">Ranking General — Todos los Juegos</h2></div>
+  <div class="full-table-wrap">
+    <table class="full-rank-table">
+      <thead><tr><th>#</th><th>Juego</th><th>Categoría</th><th>Tipo</th><th>Plataformas</th><th>Búsquedas/mes</th><th>Artículos</th></tr></thead>
+      <tbody id="fullRankBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Top Articles -->
+  <div class="section-header" style="margin-top:4rem"><h2 class="section-title">Top 30 Artículos Más Buscados</h2></div>
+  <div class="full-table-wrap">
+    <table class="full-rank-table">
+      <thead><tr><th>#</th><th>Artículo</th><th>Juego</th><th>Tipo</th><th>Búsquedas/mes</th></tr></thead>
+      <tbody id="topArtBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 TodoJuegosInfo.com</p>
+      <div class="footer-links"><a href="index.html">Inicio</a><a href="videojuegos.html">Videojuegos</a></div>
+    </div>
+  </div>
+</footer>
+<button class="back-top" id="backTop">↑</button>
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script>
+// Charts
+function renderCharts() {
+  const row = document.getElementById('chartsRow');
+  if (!row) return;
+  const vg = GAMES.filter(g=>g.cat==='videojuego').sort((a,b)=>b.vol-a.vol).slice(0,8);
+  const mg = GAMES.filter(g=>g.cat==='mesa').sort((a,b)=>b.vol-a.vol).slice(0,8);
+  const maxVG = vg[0].vol, maxMG = mg[0].vol;
+  const makeChart = (games, max, title, accent) => `
+    <div class="chart-box fade-in">
+      <h3>${title}</h3>
+      <div class="bar-chart">${games.map(g=>`
+        <div class="bar-row">
+          <div class="bar-label">${g.emoji} ${g.name}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${Math.round(g.vol/max*100)}%;background:${g.color||accent}"></div></div>
+          <div class="bar-vol">${fmtVol(g.vol)}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  row.innerHTML = makeChart(vg, maxVG, '🎮 Top Videojuegos', 'var(--cyan)') + makeChart(mg, maxMG, '♟️ Top Juegos de Mesa', 'var(--orange)');
+}
+renderCharts();
+
+// Full ranking
+const allSorted = [...GAMES].sort((a,b)=>b.vol-a.vol);
+document.getElementById('fullRankBody').innerHTML = allSorted.map((g,i)=>`
+  <tr>
+    <td style="font-family:var(--font-head);font-weight:700;color:${i<3?['#ffd700','#c0c0c0','#cd7f32'][i]:'var(--text3)'}">${i+1}</td>
+    <td><a href="game-${g.id}.html" style="color:var(--text);font-weight:600">${g.emoji} ${g.name}</a></td>
+    <td><span style="color:${g.color};font-weight:600">${g.sub}</span></td>
+    <td><span class="rank-cat ${g.cat}">${g.cat==='videojuego'?'🎮 Videojuego':'♟️ Mesa'}</span></td>
+    <td style="color:var(--text3);font-size:.82rem">${g.platform.join(', ')}</td>
+    <td class="rank-vol">${fmtVol(g.vol)}</td>
+    <td style="color:var(--text3)">${g.articles}</td>
+  </tr>`).join('');
+
+// Top articles
+const topArts = [...ARTICLES].sort((a,b)=>b.vol-a.vol).slice(0,30);
+document.getElementById('topArtBody').innerHTML = topArts.map((a,i)=>{
+  const g = getGame(a.gameId);
+  return `<tr>
+    <td style="font-family:var(--font-head);font-weight:700;color:${i<3?['#ffd700','#c0c0c0','#cd7f32'][i]:'var(--text3)'}">${i+1}</td>
+    <td><a href="game-${a.gameId}.html" style="color:var(--text);font-weight:600">${a.title}</a></td>
+    <td>${g?`${g.emoji} ${g.name}`:''}</td>
+    <td><span class="ac-type ${getTypeClass(a.type)} rank-cat" style="border-radius:999px">${typeLabel(a.type)}</span></td>
+    <td class="rank-vol">${fmtVol(a.vol)}</td>
+  </tr>`;
+}).join('');
+
+observeFadeIns();
+</script>
+</body>
+</html>

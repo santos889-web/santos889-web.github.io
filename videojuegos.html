@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Videojuegos — TodoJuegosInfo.com</title>
+  <meta name="description" content="Guías, trucos y estrategias para todos los videojuegos. Fortnite, Minecraft, GTA V, Valorant y más."/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header id="main-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo"><span class="logo-tji">TJI</span><span class="logo-full">TodoJuegosInfo</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="videojuegos.html" class="nav-link active">Videojuegos</a>
+      <a href="juegos-mesa.html" class="nav-link">Juegos de Mesa</a>
+      <a href="consolas.html" class="nav-link">Consolas</a>
+      <a href="noticias.html" class="nav-link">Noticias</a>
+      <a href="rankings.html" class="nav-link">Rankings</a>
+    </div>
+    <div class="nav-actions">
+      <button class="search-btn" id="searchBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container"><input type="text" id="searchInput" placeholder="Buscar juego, guía, truco..." autocomplete="off"/><button id="searchClose">✕</button></div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>🎮 Videojuegos</h1>
+    <p>Guías completas, trucos avanzados y estrategias ganadoras para los 20 videojuegos más buscados en español.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="platform-filter" id="platformFilter">
+    <button class="pf-btn active" data-platform="all">Todos (20)</button>
+    <button class="pf-btn" data-platform="PC">💻 PC</button>
+    <button class="pf-btn" data-platform="PS5">🟦 PS5</button>
+    <button class="pf-btn" data-platform="Xbox">🟩 Xbox</button>
+    <button class="pf-btn" data-platform="Switch">🔴 Switch</button>
+    <button class="pf-btn" data-platform="Mobile">📱 Mobile</button>
+  </div>
+  <div class="games-big-grid" id="videojuegosGrid"></div>
+</div>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 TodoJuegosInfo.com — Hecho con ❤️ para gamers hispanohablantes.</p>
+      <div class="footer-links"><a href="index.html">Inicio</a><a href="rankings.html">Rankings</a><a href="noticias.html">Noticias</a></div>
+    </div>
+  </div>
+</footer>
+<button class="back-top" id="backTop">↑</button>
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script>
+function renderVideojuegos(platform) {
+  const grid = document.getElementById('videojuegosGrid');
+  if (!grid) return;
+  let games = GAMES.filter(g => g.cat === 'videojuego');
+  if (platform && platform !== 'all') games = games.filter(g => g.platform.includes(platform));
+  grid.innerHTML = games.map(g => {
+    const arts = getGameArticles(g.id);
+    return `<a href="game-${g.id}.html" class="big-game-card fade-in" style="border-color:${g.color}22">
+      <div class="bgc-header" style="background:linear-gradient(135deg,${g.color}18,${g.color}06)">
+        <div class="bgc-emoji">${g.emoji}</div>
+        <div class="bgc-platforms">${g.platform.map(p=>`<span class="bgc-platform">${p}</span>`).join('')}</div>
+      </div>
+      <div class="bgc-body">
+        <div class="bgc-sub">${g.sub}</div>
+        <div class="bgc-name">${g.name}</div>
+        <p class="bgc-desc">${g.desc}</p>
+        <div class="bgc-articles">${arts.slice(0,4).map(a=>`<div class="bgc-art-item">${a.title}</div>`).join('')}</div>
+        <div class="bgc-footer">
+          <span class="bgc-vol" style="color:${g.color}">${fmtVol(g.vol)}/mes</span>
+          <span class="bgc-count">${arts.length} artículos</span>
+        </div>
+      </div>
+    </a>`;
+  }).join('');
+  observeFadeIns();
+}
+renderVideojuegos('all');
+document.querySelectorAll('.pf-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    renderVideojuegos(this.dataset.platform);
+  });
+});
+</script>
+</body>
+</html>

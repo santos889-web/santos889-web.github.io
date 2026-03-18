@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Noticias Gaming — TodoJuegosInfo.com</title>
+  <meta name="description" content="Últimas noticias del mundo gamer. Lanzamientos, actualizaciones, torneos y todo lo que necesitas saber."/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header id="main-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo"><span class="logo-tji">TJI</span><span class="logo-full">TodoJuegosInfo</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="videojuegos.html" class="nav-link">Videojuegos</a>
+      <a href="juegos-mesa.html" class="nav-link">Juegos de Mesa</a>
+      <a href="consolas.html" class="nav-link">Consolas</a>
+      <a href="noticias.html" class="nav-link active">Noticias</a>
+      <a href="rankings.html" class="nav-link">Rankings</a>
+    </div>
+    <div class="nav-actions">
+      <button class="search-btn" id="searchBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container"><input type="text" id="searchInput" placeholder="Buscar noticias..." autocomplete="off"/><button id="searchClose">✕</button></div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>📰 Noticias Gaming</h1>
+    <p>Las últimas novedades del mundo de los videojuegos y juegos de mesa. Lanzamientos, parches, torneos y mucho más.</p>
+  </div>
+</div>
+
+<div class="page-content">
+  <div class="news-layout">
+    <div class="news-grid">
+      <div class="news-card fade-in">
+        <div class="nc-img">🏆</div>
+        <div class="nc-body">
+          <h3>Fortnite Capítulo 6: Todo lo que sabemos del nuevo mapa</h3>
+          <p>Epic Games reveló los primeros detalles del nuevo capítulo de Fortnite con cambios radicales en el mapa, nuevas mecánicas de movimiento y skins exclusivas de colaboración.</p>
+          <div class="nc-meta"><span class="nc-tag">Fortnite</span><span class="nc-tag">Battle Royale</span><span class="nc-date">Marzo 2026</span></div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="nc-img">🎮</div>
+        <div class="nc-body">
+          <h3>GTA VI: Rockstar confirma fecha de lanzamiento definitiva</h3>
+          <p>Después de años de espera, Rockstar Games confirmó la ventana de lanzamiento de GTA VI. El juego más esperado de la década finalmente tiene fecha y tráiler extendido.</p>
+          <div class="nc-meta"><span class="nc-tag">GTA VI</span><span class="nc-tag">Rockstar</span><span class="nc-date">Marzo 2026</span></div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="nc-img">🔫</div>
+        <div class="nc-body">
+          <h3>Valorant Episode 10: Nuevos agentes y mapa inédito</h3>
+          <p>Riot Games presentó el Episode 10 de Valorant con dos nuevos agentes, un mapa completamente nuevo y cambios significativos en el sistema de ranking competitivo.</p>
+          <div class="nc-meta"><span class="nc-tag">Valorant</span><span class="nc-tag">FPS</span><span class="nc-date">Febrero 2026</span></div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="nc-img">⛏️</div>
+        <div class="nc-body">
+          <h3>Minecraft 1.22: La Update de los Mundos Profundos llega este año</h3>
+          <p>Mojang anunció Minecraft 1.22 con nuevas dimensiones, mobs subterráneos, bloques únicos y mejoras masivas al sistema de cavernas que cambiarán la experiencia de supervivencia.</p>
+          <div class="nc-meta"><span class="nc-tag">Minecraft</span><span class="nc-tag">Update</span><span class="nc-date">Febrero 2026</span></div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="nc-img">♟️</div>
+        <div class="nc-body">
+          <h3>El ajedrez online bate récords históricos de jugadores activos</h3>
+          <p>Chess.com reporta más de 100 millones de partidas diarias en su plataforma, impulsado por el fenómeno de los streamers de ajedrez y la creciente popularidad en Latinoamérica.</p>
+          <div class="nc-meta"><span class="nc-tag">Ajedrez</span><span class="nc-tag">Juegos de Mesa</span><span class="nc-date">Enero 2026</span></div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="nc-img">🤖</div>
+        <div class="nc-body">
+          <h3>Cyberpunk 2077: CD Projekt Red anuncia expansión gratuita</h3>
+          <p>Tras el éxito de Phantom Liberty, CD Projekt Red sorprendió a la comunidad con el anuncio de una expansión gratuita que añade nueva storyline y el barrio de Westbrook ampliado.</p>
+          <div class="nc-meta"><span class="nc-tag">Cyberpunk 2077</span><span class="nc-tag">DLC</span><span class="nc-date">Enero 2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="news-sidebar">
+      <div class="sidebar-box">
+        <h3>🔥 Trending Ahora</h3>
+        <div id="trendingList"></div>
+      </div>
+      <div class="sidebar-box">
+        <h3>🏷️ Temas</h3>
+        <div class="tag-cloud">
+          <span class="tag-pill">Fortnite</span><span class="tag-pill">GTA VI</span><span class="tag-pill">Valorant</span>
+          <span class="tag-pill">Minecraft</span><span class="tag-pill">Ajedrez</span><span class="tag-pill">Actualizaciones</span>
+          <span class="tag-pill">Consolas</span><span class="tag-pill">Torneos</span><span class="tag-pill">Parches</span>
+          <span class="tag-pill">Indie</span><span class="tag-pill">Battle Royale</span><span class="tag-pill">RPG</span>
+        </div>
+      </div>
+      <div class="sidebar-box">
+        <h3>📅 Próximos Lanzamientos</h3>
+        <div style="display:flex;flex-direction:column;gap:.75rem">
+          <div style="padding:.75rem;background:var(--bg3);border-radius:8px"><div style="font-size:.8rem;color:var(--cyan);font-weight:600;margin-bottom:.25rem">2026 Q2</div><div style="font-size:.88rem;font-weight:600">GTA VI</div></div>
+          <div style="padding:.75rem;background:var(--bg3);border-radius:8px"><div style="font-size:.8rem;color:var(--purple2);font-weight:600;margin-bottom:.25rem">2026 Q2</div><div style="font-size:.88rem;font-weight:600">Minecraft 1.22</div></div>
+          <div style="padding:.75rem;background:var(--bg3);border-radius:8px"><div style="font-size:.8rem;color:var(--green);font-weight:600;margin-bottom:.25rem">2026 Q3</div><div style="font-size:.88rem;font-weight:600">Zelda: Echoes DLC</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 TodoJuegosInfo.com</p>
+      <div class="footer-links"><a href="index.html">Inicio</a><a href="rankings.html">Rankings</a></div>
+    </div>
+  </div>
+</footer>
+<button class="back-top" id="backTop">↑</button>
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script>
+const trending = getTopGames(8);
+document.getElementById('trendingList').innerHTML = trending.map((g,i)=>`
+  <div class="trending-item"><span class="ti-num">${i+1}</span><a href="game-${g.id}.html" class="ti-text" style="color:var(--text2)">${g.emoji} ${g.name}</a></div>`).join('');
+observeFadeIns();
+</script>
+</body>
+</html>
