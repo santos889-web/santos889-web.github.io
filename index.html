@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TodoJuegosInfo - Guías, Trucos y Secretos para Todos los Juegos</title>
   <meta name="description" content="La enciclopedia definitiva de videojuegos, juegos de mesa y más. Guías completas, trucos, estrategias y secretos para todos los juegos." />
+  <meta name="keywords" content="videojuegos, juegos de mesa, guías, trucos, estrategias, Fortnite, Minecraft, GTA V, Valorant, Ajedrez, Truco, Poker" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://todojuegosinfo.com/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="TodoJuegosInfo - Guías, Trucos y Secretos" />
+  <meta property="og:description" content="La enciclopedia gamer más completa en español. Guías, trucos y estrategias para más de 30 juegos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://todojuegosinfo.com/" />
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9206651652201041" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -44,11 +55,10 @@
       </button>
     </div>
   </nav>
-  <!-- Search Bar -->
   <div class="search-overlay" id="searchOverlay">
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Buscar juego, guía, truco..." autocomplete="off" />
-      <button id="searchClose">✕</button>
+      <button id="searchClose" aria-label="Cerrar búsqueda">✕</button>
     </div>
     <div class="search-results" id="searchResults"></div>
   </div>
@@ -111,8 +121,21 @@
       <span>Configuración ideal en Valorant →</span>
       <span>Guía completa de Monopoly →</span>
       <span>Consejos para principiantes en Minecraft →</span>
+      <span>Señas del Truco: Guía Completa →</span>
+      <span>Cómo farolear en el Póker →</span>
     </div>
   </div>
+</div>
+
+<!-- AD BANNER TOP -->
+<div class="ad-container ad-leaderboard">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-9206651652201041"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- CATEGORIES -->
@@ -128,7 +151,7 @@
         <div class="cat-info">
           <h3>PC Gaming</h3>
           <p>Valorant, CS2, LoL, Fortnite y más</p>
-          <span class="cat-count">15 juegos</span>
+          <span class="cat-count">20 juegos</span>
         </div>
         <div class="cat-glow"></div>
       </a>
@@ -136,8 +159,8 @@
         <div class="cat-icon">🎮</div>
         <div class="cat-info">
           <h3>Consolas</h3>
-          <p>PS5, Xbox, Nintendo Switch</p>
-          <span class="cat-count">12 juegos</span>
+          <p>PS5, Xbox Series X, Nintendo Switch 2</p>
+          <span class="cat-count">Comparativa</span>
         </div>
         <div class="cat-glow"></div>
       </a>
@@ -145,7 +168,7 @@
         <div class="cat-icon">♟️</div>
         <div class="cat-info">
           <h3>Juegos de Mesa</h3>
-          <p>Ajedrez, Catan, Monopoly y más</p>
+          <p>Ajedrez, Truco, Monopoly y más</p>
           <span class="cat-count">14 juegos</span>
         </div>
         <div class="cat-glow"></div>
@@ -168,32 +191,39 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">🔥 Juegos Más Buscados</h2>
-      <p class="section-sub">Los títulos con mayor volumen de búsqueda</p>
+      <p class="section-sub">Los títulos con mayor volumen de búsqueda mensual</p>
       <a href="videojuegos.html" class="see-all">Ver todos →</a>
     </div>
-    <div class="featured-grid" id="featuredGrid">
-      <!-- JS rendered -->
-    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
   </div>
 </section>
+
+<!-- AD RECTANGLE MID -->
+<div class="ad-container ad-rectangle">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-9206651652201041"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <!-- QUICK ACCESS ARTICLES -->
 <section class="articles-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">📖 Artículos Recientes</h2>
+      <h2 class="section-title">📖 Artículos Destacados</h2>
       <a href="videojuegos.html" class="see-all">Ver todos →</a>
     </div>
     <div class="articles-filter">
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="guia">Guías</button>
       <button class="filter-btn" data-filter="trucos">Trucos</button>
-      <button class="filter-btn" data-filter="estrategias">Estrategias</button>
+      <button class="filter-btn" data-filter="estrategia">Estrategias</button>
       <button class="filter-btn" data-filter="secretos">Secretos</button>
     </div>
-    <div class="articles-grid" id="articlesGrid">
-      <!-- JS rendered -->
-    </div>
+    <div class="articles-grid" id="articlesGrid"></div>
     <div class="load-more-wrap">
       <button class="btn-load-more" id="loadMore">Cargar más artículos</button>
     </div>
@@ -208,11 +238,20 @@
       <p class="section-sub">Estrategia, suerte y diversión sin pantallas</p>
       <a href="juegos-mesa.html" class="see-all">Ver todos →</a>
     </div>
-    <div class="boardgames-grid" id="boardgamesGrid">
-      <!-- JS rendered -->
-    </div>
+    <div class="boardgames-grid" id="boardgamesGrid"></div>
   </div>
 </section>
+
+<!-- AD BANNER BOTTOM -->
+<div class="ad-container ad-leaderboard">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-9206651652201041"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <!-- TIPS BANNER -->
 <section class="tips-banner">
@@ -220,7 +259,7 @@
     <div class="tips-text">
       <h2>¿Eres nuevo en el gaming?</h2>
       <p>Tenemos guías especiales para principiantes en todos los juegos. Aprende desde cero con nuestros tutoriales paso a paso.</p>
-      <a href="videojuegos.html#principiantes" class="btn-primary">Guías para Principiantes</a>
+      <a href="videojuegos.html" class="btn-primary">Guías para Principiantes</a>
     </div>
     <div class="tips-icons">
       <div class="tip-icon">🎯</div>
@@ -236,7 +275,7 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">📊 Top Búsquedas por Juego</h2>
-      <p class="section-sub">Basado en datos reales de volumen de búsqueda</p>
+      <p class="section-sub">Basado en datos reales de volumen de búsqueda mensual</p>
     </div>
     <div class="ranking-table-wrap">
       <table class="ranking-table" id="rankingTable">
@@ -249,9 +288,7 @@
             <th>Categoría</th>
           </tr>
         </thead>
-        <tbody id="rankingBody">
-          <!-- JS rendered -->
-        </tbody>
+        <tbody id="rankingBody"></tbody>
       </table>
     </div>
   </div>
@@ -265,7 +302,7 @@
       <h2>Suscríbete a TJI</h2>
       <p>Recibe las mejores guías, trucos y novedades gamer directamente en tu email. Gratis, siempre.</p>
       <div class="nl-form">
-        <input type="email" placeholder="tu@email.com" id="nlEmail" />
+        <input type="email" placeholder="tu@email.com" id="nlEmail" aria-label="Tu email" />
         <button class="btn-primary" id="nlBtn">Suscribirme</button>
       </div>
       <p class="nl-disclaimer">Sin spam. Cancela cuando quieras.</p>
@@ -284,10 +321,10 @@
         </div>
         <p>La enciclopedia gamer más completa en español. Guías, trucos, secretos y estrategias para todos los juegos.</p>
         <div class="social-links">
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">🐦</a>
-          <a href="#" class="social-btn">📷</a>
-          <a href="#" class="social-btn">▶️</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
         </div>
       </div>
       <div class="footer-col">
@@ -295,9 +332,8 @@
         <ul>
           <li><a href="game-fortnite.html">Fortnite</a></li>
           <li><a href="game-minecraft.html">Minecraft</a></li>
-          <li><a href="game-gtav.html">GTA V</a></li>
+          <li><a href="game-gta-v.html">GTA V</a></li>
           <li><a href="game-valorant.html">Valorant</a></li>
-          <li><a href="game-lol.html">League of Legends</a></li>
           <li><a href="videojuegos.html">Ver todos →</a></li>
         </ul>
       </div>
@@ -305,10 +341,8 @@
         <h4>Juegos de Mesa</h4>
         <ul>
           <li><a href="game-ajedrez.html">Ajedrez</a></li>
-          <li><a href="game-monopoly.html">Monopoly</a></li>
-          <li><a href="game-catan.html">Catan</a></li>
+          <li><a href="game-truco.html">Truco</a></li>
           <li><a href="game-poker.html">Póker</a></li>
-          <li><a href="game-uno.html">UNO</a></li>
           <li><a href="juegos-mesa.html">Ver todos →</a></li>
         </ul>
       </div>
@@ -318,23 +352,20 @@
           <li><a href="noticias.html">Noticias Gaming</a></li>
           <li><a href="rankings.html">Rankings</a></li>
           <li><a href="consolas.html">Consolas</a></li>
-          <li><a href="videojuegos.html#principiantes">Para Principiantes</a></li>
-          <li><a href="videojuegos.html#avanzado">Nivel Avanzado</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 TodoJuegosInfo.com — Todos los derechos reservados. Hecho con ❤️ para gamers hispanohablantes.</p>
       <div class="footer-links">
-        <a href="#">Privacidad</a>
-        <a href="#">Términos</a>
-        <a href="#">Contacto</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="contacto.html">Contacto</a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- BACK TO TOP -->
 <button class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
 
 <script src="data.js"></script>
