@@ -1,5 +1,5 @@
 <?php
-header('Location: https://srv.adstxtmanager.com/19390/[todojuegosinfo].com');
+header('Location: https://srv.adstxtmanager.com/19390/[todojuegosinfo.com].com');
 exit;
 ?>
 
